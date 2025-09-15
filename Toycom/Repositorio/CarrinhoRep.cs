@@ -1,6 +1,6 @@
 ﻿namespace Toycom.Repositorio
 {
-    public class Pedido
+    public class CarrinhoRep
     {
     }
 }

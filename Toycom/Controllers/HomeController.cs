@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Toycom.Models;
-
+using Toycom.Repositorio;
 namespace Toycom.Controllers
 {
     public class HomeController : Controller
@@ -12,10 +12,11 @@ namespace Toycom.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
+            var produtos = await _produtoRepositorio.TodosProdutos();
         }
 
         public IActionResult Privacy()
