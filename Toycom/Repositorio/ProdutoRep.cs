@@ -12,7 +12,7 @@ namespace Toycom.Repositorio
         {
             _connectionString = connectionString;
         }
-        public async Task<IEnumerable<Produtos>> TodosProdutos()
+        public async Task<IEnumerable<Produtos>>TodosProdutos()
         {
             using var connection = new MySqlConnection(_connectionString);
             var sql = "Select Id, Nome, Descricao, Preco, ImageUrl, Estoque from tbProduto";
