@@ -22,7 +22,7 @@
                     <p class="card-text"><strong>Preço: R$ @Produtos.Preco.ToString("F2")</strong></p>
                     <p class="card-text"><small class="text-muted">Estoque: @Produtos.Estoque</small></p>
 
-                    <form asp-controller="Carrinho" asp-action="AdicionarCarrinho" method="post">
+                    <form asp-controller="Carrinho" asp-action="Index" method="post">
                         <input type="hidden" name="ProdutosId" value="@Produtos.Id" />
                         <div class="form-group mb-2">
                             <label for="quantidade-@Produtos.Id">Quantidade:</label>

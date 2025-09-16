@@ -75,7 +75,7 @@ public class CarrinhoRep
         return CarrinhoItems(session).Sum(item => item.Total);
     }
 
-    private void SalvarCarrinho(ISession session, List<Itens> cart)
+    private void SalvarCarrinho(ISession session, List<Carrinho> cart)
     {
         session.SetString(CartSessionKey, JsonConvert.SerializeObject(cart));
     }

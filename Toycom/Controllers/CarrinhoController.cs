@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Toycom.Models;
 using Toycom.Repositorio;
 
 namespace Toycom.Controllers
 {
-    public class CarrinhoControler : Controller
+    public class CarrinhoController : Controller
     {
         private readonly CarrinhoRep _carrinhoRep;
         private readonly ProdutoRep _produtoRep;
 
-        public CarrinhoControler(CarrinhoRep carrinhoRep, ProdutoRep produtoRep)
+        public CarrinhoController(CarrinhoRep carrinhoRep, ProdutoRep produtoRep)
         {
             _carrinhoRep = carrinhoRep;
             _produtoRep = produtoRep;
@@ -37,8 +38,14 @@ namespace Toycom.Controllers
                 TempData["Message"] = "Produto não encontrado."; // Use TempData para mensagens
                 return RedirectToAction("Index", "Home");
             }
-
-            _carrinhoRep.AdicionarCarrinho(HttpContext.Session, produtos, quantidade);
+            var carrinho = new Carrinho
+            {
+                ProdutoId = produto.Id,
+                Produto = produto,
+                Quantidade = quantidade,
+                Preco = produto.Preco
+            };
+            _carrinhoRep.AdicionarCarrinho(HttpContext.Session, carrinho , quantidade);
             return RedirectToAction("Index", "Carrinho");
         }
 
