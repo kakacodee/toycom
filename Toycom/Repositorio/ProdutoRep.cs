@@ -10,6 +10,7 @@ namespace Toycom.Repositorio
 
         public ProdutoRep(string connectionString)
         {
+            /*Variavel com string de conexão com o MySql*/
             _connectionString = connectionString;
         }
         public async Task<IEnumerable<Produtos>>TodosProdutos()
