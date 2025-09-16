@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Toycom.Models
 {
+    /*Classe publica para adicao de produtos*/
     public class Produtos
     {
         public int Id { get; set; }
