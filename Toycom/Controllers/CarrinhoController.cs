@@ -21,7 +21,7 @@ namespace Toycom.Controllers
             {
                 item.Produto = await _produtoRep.ProdutosPorId(item.ProdutoId);
 
-                if(item.Produto != null)
+                if (item.Produto != null)
                 {
 
                 }
@@ -38,15 +38,10 @@ namespace Toycom.Controllers
                 TempData["Message"] = "Produto não encontrado."; // Use TempData para mensagens
                 return RedirectToAction("Index", "Home");
             }
-            var carrinho = new Carrinho
-            {
-                ProdutoId = produto.Id,
-                Produto = produto,
-                Quantidade = quantidade,
-                Preco = produto.Preco
-            };
-            _carrinhoRep.AdicionarCarrinho(HttpContext.Session, carrinho , quantidade);
+            else { 
+            _carrinhoRep.AdicionarCarrinho(HttpContext.Session, produto, quantidade);
             return RedirectToAction("Index", "Carrinho");
+            }
         }
 
         [HttpPost]

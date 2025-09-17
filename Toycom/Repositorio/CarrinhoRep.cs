@@ -13,10 +13,10 @@ public class CarrinhoRep
         return cartJson == null ? new List<Carrinho>() : JsonConvert.DeserializeObject<List<Carrinho>>(cartJson);
     }
 
-    public void AdicionarCarrinho(ISession session, Carrinho carrinho, int quantidade)
+    public void AdicionarCarrinho(ISession session, Produtos produtos, int quantidade)
     {
         var cart = CarrinhoItems(session);
-        var existingItem = cart.FirstOrDefault(item => item.ProdutoId == carrinho.ProdutoId);
+        var existingItem = cart.FirstOrDefault(item => item.ProdutoId == produtos.Id);
 
         if (existingItem != null)
         {
@@ -26,10 +26,10 @@ public class CarrinhoRep
         {
             cart.Add(new Carrinho
             {
-                ProdutoId = carrinho.ProdutoId,
-                Produto = carrinho.Produto,
-                Quantidade = carrinho.Quantidade,
-                Preco = carrinho.Preco
+                ProdutoId = produtos.Id,
+                
+                Quantidade = quantidade,
+                Preco = produtos.Preco
             });
         }
         SalvarCarrinho(session, cart);
