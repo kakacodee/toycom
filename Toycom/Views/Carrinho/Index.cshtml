@@ -49,15 +49,16 @@
         <tfoot>
             <tr>
                 <td colspan="3" class="text-right"><strong>Total do Carrinho:</strong></td>
-                <td><strong>R$ @ViewBag.TotalCarrinho.ToString("F2")</strong></td>
+                <td><strong style="color:Red">R$ @ViewBag.TotalCarrinho.ToString("F2")</strong></td>
                 <td></td>
             </tr>
         </tfoot>
     </table>
 
     <div class="text-right">
-        <a asp-controller="Pedido" asp-action="Checkout" class="btn btn-success">Finalizar Compra</a>
+        <!--<a asp-controller="Pedido" asp-action="Checkout" class="btn btn-success">Finalizar Compra</a>-->
         <form asp-controller="Carrinho" asp-action="LimparCarrinho" method="post" class="d-inline">
+            <button type="submit" onclick="alert('Compra realizada')" class="btn btn-success">Finalizar Compra</button>
             <button type="submit" class="btn btn-warning">Limpar Carrinho</button>
             <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Continuar Comprando</a>
         </form>
