@@ -27,8 +27,8 @@ public class CarrinhoRep
             cart.Add(new Carrinho
             {
                 ProdutoId = carrinho.ProdutoId,
-                //Produto = produto,
-                Quantidade = quantidade,
+                Produto = carrinho.Produto,
+                Quantidade = carrinho.Quantidade,
                 Preco = carrinho.Preco
             });
         }
