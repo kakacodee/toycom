@@ -22,7 +22,7 @@ namespace Toycom.Repositorio
         public async Task<Produtos?> ProdutosPorId(int id)
         {
             using var connection = new MySqlConnection(_connectionString);
-            var sql = "SELECT Id, Nome, Descricao, Preco, ImageUrl, Estoque FROM produtos WHERE Id = @Id";
+            var sql = "SELECT Id, Nome, Descricao, Preco, ImageUrl, Estoque FROM tbProduto WHERE Id = @Id";
             return await connection.QueryFirstOrDefaultAsync<Produtos>(sql, new { Id = id });
         }
     }
