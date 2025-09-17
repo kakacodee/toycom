@@ -21,10 +21,10 @@ namespace Toycom.Controllers
             {
                 item.Produto = await _produtoRep.ProdutosPorId(item.ProdutoId);
 
-                if (item.Produto != null)
-                {
+                //if (item.Produto != null)
+                //{
 
-                }
+                //}
             }
             ViewBag.TotalCarrinho = _carrinhoRep.TotalCarrinho(HttpContext.Session);
             return View(cartItems);
